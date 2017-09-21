@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.main');
+
+
+Route::group(['prefix' => 'bistrocp'], function () {
+
+	Route::get('/', function () {
+    	return view('pages.main');
+	});
+
+	Route::get('/employees', 'EmployeeController@index')->name('employees.index');
+
 });

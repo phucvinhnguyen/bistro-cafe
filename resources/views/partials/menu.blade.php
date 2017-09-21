@@ -1,4 +1,4 @@
-<aside class="bg-dark lter aside-md hidden-print" id="nav">          
+<aside class="bg-light lter aside-md hidden-print" id="nav">          
           <section class="vbox">
 <!--             <header class="header bg-primary lter text-center clearfix">
               <div class="btn-group">
@@ -52,7 +52,7 @@
                       </a>
                       <ul class="nav lt">
                         <li >
-                          <a href="buttons.html" >   
+                          <a href="{{ routeQuery('employees.index') }}" >   
                             <b class="badge bg-info pull-right">5</b>                                                           
                             <i class="fa fa-angle-right"></i>
                             <span>Nhân viên</span>

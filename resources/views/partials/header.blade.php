@@ -4,7 +4,7 @@
         <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
           <i class="fa fa-bars"></i>
       </a>
-      <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">ADMIN</a>
+      <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="/images/logo.png" class="m-r-sm">ADMIN</a>
       <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
           <i class="fa fa-cog"></i>
       </a>
@@ -24,7 +24,7 @@
         <div class="list-group list-group-alt animated fadeInRight">
             <a href="#" class="media list-group-item">
               <span class="pull-left thumb-sm">
-                <img src="images/avatar.jpg" alt="John said" class="img-circle">
+                <img src="/images/avatar.jpg" alt="John said" class="img-circle">
             </span>
             <span class="media-body block m-b-none">
                 Use awesome animate.css<br>
@@ -65,7 +65,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     <span class="thumb-sm avatar pull-left">
-      <img src="images/avatar.jpg">
+      <img src="/images/avatar.jpg">
   </span>
   Administrator <b class="caret"></b>
 </a>

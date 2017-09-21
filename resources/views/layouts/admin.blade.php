@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{!! asset('css/font-awesome.min.css') !!}" type="text/css" />
   <link rel="stylesheet" href="{!! asset('css/font.css') !!}" type="text/css" />
   <link rel="stylesheet" href="{!! asset('js/calendar/bootstrap_calendar.css') !!}" type="text/css" />
+  <link rel="stylesheet" href="{!! asset('js/datatables/datatables.css') !!}" type="text/css" />
   <link rel="stylesheet" href="{!! asset('css/app.css') !!}" type="text/css" />
   <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
@@ -45,18 +46,9 @@
 <script src="{!! asset('js/jquery.min.js') !!}"></script>
 <script src="{!! asset('js/bootstrap.js') !!}"></script>
 <script src="{!! asset('js/app.js') !!}"></script>
-<script src="{!! asset('js/app.plugin.js') !!}"></script>
+<!-- <script src="{!! asset('js/app.plugin.js') !!}"></script> -->
 <script src="{!! asset('js/slimscroll/jquery.slimscroll.min.js') !!}"></script>
-<script src="{!! asset('js/charts/easypiechart/jquery.easy-pie-chart.js') !!}"></script>
-<script src="{!! asset('js/charts/sparkline/jquery.sparkline.min.js') !!}"></script>
-<script src="{!! asset('js/charts/flot/jquery.flot.min.js') !!}"></script>
-<script src="{!! asset('js/charts/flot/jquery.flot.tooltip.min.js') !!}"></script>
-<script src="{!! asset('js/charts/flot/jquery.flot.resize.js') !!}"></script>
-<script src="{!! asset('js/charts/flot/jquery.flot.grow.js') !!}"></script>
-<script src="{!! asset('js/charts/flot/demo.js') !!}"></script>
-<script src="{!! asset('js/calendar/bootstrap_calendar.js') !!}"></script>
-<script src="{!! asset('js/calendar/demo.js') !!}"></script>
-<script src="{!! asset('js/sortable/jquery.sortable.js') !!}"></script>
+
 
 @yield('scripts')
 
