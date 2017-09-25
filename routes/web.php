@@ -19,6 +19,7 @@ Route::group(['prefix' => 'bistrocp'], function () {
     	return view('pages.main');
 	});
 
-	Route::get('/employees', 'EmployeeController@index')->name('employees.index');
+    Route::get('/employees', 'EmployeeController@index')->name('employees.index');
+	Route::resource('/employees/{id}/delete', 'EmployeeController@destroy');
 
 });

@@ -4,13 +4,14 @@
   <meta charset="utf-8" />
   <title>Web Application</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="{!! asset('css/bootstrap.css') !!}" type="text/css" />
   <link rel="stylesheet" href="{!! asset('css/animate.css') !!}" type="text/css" />
   <link rel="stylesheet" href="{!! asset('css/font-awesome.min.css') !!}" type="text/css" />
   <link rel="stylesheet" href="{!! asset('css/font.css') !!}" type="text/css" />
+  <link rel="stylesheet" href="{!! asset('js/datepicker/datepicker.css') !!}" />
   <link rel="stylesheet" href="{!! asset('js/calendar/bootstrap_calendar.css') !!}" type="text/css" />
-  <link rel="stylesheet" href="{!! asset('js/datatables/datatables.css') !!}" type="text/css" />
+  <!-- <link rel="stylesheet" href="{!! asset('js/datatables/datatables.css') !!}" type="text/css" /> -->
   <link rel="stylesheet" href="{!! asset('css/app.css') !!}" type="text/css" />
   <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
@@ -48,6 +49,8 @@
 <script src="{!! asset('js/app.js') !!}"></script>
 <!-- <script src="{!! asset('js/app.plugin.js') !!}"></script> -->
 <script src="{!! asset('js/slimscroll/jquery.slimscroll.min.js') !!}"></script>
+<script src="{!! asset('js/datepicker/bootstrap-datepicker.js') !!}"></script>
+
 
 
 @yield('scripts')

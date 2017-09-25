@@ -1,7 +1,7 @@
 !function ($) {
 
   $(function(){
- 	
+
 	// sparkline
 	var sr, sparkline = function($re){
 		$(".sparkline").each(function(){
@@ -22,9 +22,9 @@
 
 	// easypie
     $('.easypiechart').each(function(){
-    	var $this = $(this), 
-    	$data = $this.data(), 
-    	$step = $this.find('.step'), 
+    	var $this = $(this),
+    	$data = $this.data(),
+    	$step = $this.find('.step'),
     	$target_value = parseInt($($data.target).text()),
     	$value = 0;
     	$data.barColor || ( $data.barColor = function($percent) {
@@ -46,7 +46,7 @@
 	});
 
   	// combodate
-	$(".combodate").each(function(){ 
+	$(".combodate").each(function(){
 		$(this).combodate();
 		$(this).next('.combodate').find('select').addClass('form-control');
 	});
@@ -216,22 +216,25 @@
 			}
 		);
 	});
-	
+
 	// add notes
-	function addMsg($msg){
-		var $el = $('.nav-user'), $n = $('.count:first', $el), $v = parseInt($n.text());
-		$('.count', $el).fadeOut().fadeIn().text($v+1);
-		$($msg).hide().prependTo($el.find('.list-group')).slideDown().css('display','block');
-	}
-	var $msg = '<a href="#" class="media list-group-item">'+
+	function addMsg($content) {
+        var $msg = '<a href="#" class="media list-group-item">'+
                   '<span class="pull-left thumb-sm text-center">'+
                     '<i class="fa fa-envelope-o fa-2x text-success"></i>'+
                   '</span>'+
                   '<span class="media-body block m-b-none">'+
-                    'Sophi sent you a email<br>'+
-                    '<small class="text-muted">1 minutes ago</small>'+
+                    $content +
+                    '</br><small class="text-muted">1 minutes ago</small>'+
                   '</span>'+
-                '</a>';	
+                '</a>';
+		var $el = $('.nav-user'), $n = $('.count:first', $el), $v = parseInt($n.text());
+		$('.count', $el).fadeOut().fadeIn().text($v+1);
+		$($msg).hide().prependTo($el.find('.list-group')).slideDown().css('display','block');
+	}
+
+    var $msg = 'Test message';
+
     setTimeout(function(){addMsg($msg);}, 1500);
 
 	// datatable
@@ -251,7 +254,7 @@
 		} );
 	});
 
-	// select2 
+	// select2
  	if ($.fn.select2) {
       $("#select2-option").select2();
       $("#select2-tags").select2({

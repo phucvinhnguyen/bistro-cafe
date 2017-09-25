@@ -9,38 +9,26 @@
           <i class="fa fa-cog"></i>
       </a>
   </div>
-        
+
 <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
     <li class="hidden-xs">
       <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
         <i class="fa fa-bell"></i>
-        <span class="badge badge-sm up bg-danger m-l-n-sm count">3</span>
+        <span class="badge badge-sm up bg-danger m-l-n-sm count">0</span>
     </a>
     <section class="dropdown-menu aside-xl">
         <section class="panel bg-white">
           <header class="panel-heading b-light bg-light">
-            <strong>You have <span class="count">3</span> notifications</strong>
+            <strong>Bạn có <span class="count"></span> thông báo.</strong>
         </header>
         <div class="list-group list-group-alt animated fadeInRight">
-            <a href="#" class="media list-group-item">
-              <span class="pull-left thumb-sm">
-                <img src="/images/avatar.jpg" alt="John said" class="img-circle">
-            </span>
-            <span class="media-body block m-b-none">
-                Use awesome animate.css<br>
-                <small class="text-muted">10 minutes ago</small>
-            </span>
-        </a>
-        <a href="#" class="media list-group-item">
-          <span class="media-body block m-b-none">
-            1.0 initial released<br>
-            <small class="text-muted">1 hour ago</small>
-        </span>
-    </a>
-</div>
+        @if (Session::has('message'))
+          <script type="text/javascript"> addMsg({!! session('message') !!}) </script>
+        @endif
+        </div>
 <footer class="panel-footer text-sm">
     <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-    <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
+    <a href="#notes" data-toggle="class:show animated fadeInRight">Xem tất cả</a>
 </footer>
 </section>
 </section>
@@ -92,5 +80,5 @@
 </li>
 </ul>
 </li>
-</ul>      
+</ul>
 </header>

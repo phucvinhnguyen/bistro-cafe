@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Interface\EmployeeRepository;
+use App\Repositories\Interfaces\EmployeeRepository;
 use App\Entities\Employee;
 use App\Validators\EmployeeValidator;
 

@@ -216,7 +216,7 @@ return [
             'orderBy'      => 'orderBy',
             'sortedBy'     => 'sortedBy',
             'with'         => 'with',
-            'searchJoin'   => 'searchJoin'            
+            'searchJoin'   => 'searchJoin'
         ]
     ],
     /*
@@ -232,7 +232,7 @@ return [
         'paths'         => [
             'models'       => 'Entities',
             'repositories' => 'Repositories\\Eloquent',
-            'interfaces'   => 'Repositories\\Interface',
+            'interfaces'   => 'Repositories\\Interfaces',
             'transformers' => 'Transformers',
             'presenters'   => 'Presenters',
             'validators'   => 'Validators',
