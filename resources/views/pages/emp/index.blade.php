@@ -43,6 +43,7 @@
                   <i class="fa fa-sort"></i>
                 </span>
               </th>
+              <th></th>
               <th>Ngày sinh</th>
               <th>Ngày làm việc</th>
               <th>SĐT</th>
@@ -55,6 +56,7 @@
               <tr>
                 <td><input type="checkbox" name="emps[]" value="{!! $emp->id !!}"></td>
                 <td>{{ $emp->name }}</td>
+                <td>{!! parseSex($emp->sex) !!} </td>
                 <td>{{ $emp->birthday }}</td>
                 <td>{{ $emp->start_date }}</td>
                 <td>{{ $emp->phone }}</td>
@@ -87,8 +89,8 @@
                     <div class="col-sm-6">
                       <label>Giới tính</label>
                       <select name="sex" class="form-control m-b">
-                          <option>Nam</option>
-                          <option>Nữ</option>
+                          <option value="1">Nam</option>
+                          <option value="2">Nữ</option>
                       </select>
                     </div>
                     <div class="col-sm-6">
@@ -139,5 +141,7 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('js/parsley/parsley.min.js') }}"></script>
+<script src="{{ asset('js/parsley/parsley.extend.js') }}"></script>
 
 @endsection
