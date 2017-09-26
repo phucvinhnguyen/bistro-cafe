@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\EmployeeRepository;
+use Carbon\Carbon;
+use Log;
+use Exception;
 
 class EmployeeController extends Controller
 {
@@ -18,6 +21,16 @@ class EmployeeController extends Controller
     {
         $emps = $this->empRepository->all();
     	return view('pages.emp.index', compact(['emps']));
+    }
+
+    public function store(Request $request)
+    {
+        $input = $request->only('name', 'phone', 'password', 'birthday', 'start_date');
+        $input['role'] = 3;
+        $input['sex'] = 1;
+        $this->empRepository->create($input);
+
+        return redirect()->route('employees.index')->with('success');
     }
 
     public function destroy($id)

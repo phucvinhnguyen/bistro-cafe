@@ -43,15 +43,13 @@
 </section>
 <!-- End wrapper-->
 
-
 <script src="{!! asset('js/jquery.min.js') !!}"></script>
 <script src="{!! asset('js/bootstrap.js') !!}"></script>
 <script src="{!! asset('js/app.js') !!}"></script>
-<!-- <script src="{!! asset('js/app.plugin.js') !!}"></script> -->
+<script src="{!! asset('js/app.plugin.js') !!}"></script>
+<script src="{!! asset('js/charts/sparkline/jquery.sparkline.min.js') !!}"></script>
 <script src="{!! asset('js/slimscroll/jquery.slimscroll.min.js') !!}"></script>
 <script src="{!! asset('js/datepicker/bootstrap-datepicker.js') !!}"></script>
-
-
 
 @yield('scripts')
 
