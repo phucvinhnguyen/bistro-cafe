@@ -15,11 +15,17 @@
 
 Route::group(['prefix' => 'bistrocp'], function () {
 
-	Route::get('/', function () {
-    	return view('pages.main');
-	});
+    Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('/employees', 'EmployeeController@index')->name('employees.index');
-	Route::resource('/employees/{id}/delete', 'EmployeeController@destroy');
+    Route::get('employees', 'EmployeeController@index')->name('employees.index');
+	Route::resource('employees', 'EmployeeController');
+
+    Route::get('auth/login', 'EmployeeController@login');
+    Route::post('auth/login', 'EmployeeController@authenticate')->name('employees.auth');
+    Route::get('auth/logout', 'EmployeeController@logout')->name('employees.auth');
 
 });
+
+Auth::routes();
+
+
