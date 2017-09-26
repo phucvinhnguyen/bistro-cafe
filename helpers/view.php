@@ -34,3 +34,11 @@ if(! function_exists("routeQuery"))
         return route($route).'?'.http_build_query($query);
     }
 }
+
+if(! function_exists("parseSex"))
+{
+    function parseSex($input)
+    {
+        return $input === 1 ? '<span class="label bg-success">Nam</span>': '<span class="label bg-danger">Nữ</i></span>';
+    }
+}

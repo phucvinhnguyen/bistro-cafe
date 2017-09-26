@@ -14,7 +14,7 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
 {
     use TransformableTrait, Authenticatable, CanResetPassword;
 
-    protected $fillable = ['name', 'phone', 'password', 'birthday', 'role', 'sex'];
+    protected $fillable = ['name', 'phone', 'password', 'birthday', 'role', 'sex', 'start_date'];
 
     protected $table = 'employees';
 

@@ -25,9 +25,8 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->only('name', 'phone', 'password', 'birthday', 'start_date');
-        $input['role'] = 3;
-        $input['sex'] = 1;
+        $input = $request->only('name', 'phone', 'password', 'birthday', 'start_date', 'sex');
+        $input['role']  = 3;
         $this->empRepository->create($input);
 
         return redirect()->route('employees.index')->with('success');
