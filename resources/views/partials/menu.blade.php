@@ -1,24 +1,9 @@
-<aside class="bg-light lter aside-md hidden-print" id="nav">          
+@if (Auth::check() && Auth::user()->hasRole(1))
+<aside class="bg-light lter aside-md hidden-print" id="nav">
           <section class="vbox">
-<!--             <header class="header bg-primary lter text-center clearfix">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project"><i class="fa fa-plus"></i></button>
-                <div class="btn-group hidden-nav-xs">
-                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
-                    Chi nhánh
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu text-left">
-                    <li><a href="#">Project</a></li>
-                    <li><a href="#">Another Project</a></li>
-                    <li><a href="#">More Projects</a></li>
-                  </ul>
-                </div>
-              </div>
-            </header> -->
             <section class="w-f scrollable">
               <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
-                
+
                 <!-- nav -->
                 <nav class="nav-primary hidden-xs">
                   <ul class="nav">
@@ -39,6 +24,7 @@
                         <span>Bán hàng</span>
                       </a>
                     </li>
+
                     <li>
                       <a href="#uikit"  >
                         <i class="fa fa-flask icon">
@@ -52,15 +38,14 @@
                       </a>
                       <ul class="nav lt">
                         <li >
-                          <a href="{{ routeQuery('employees.index') }}" >   
-                            <b class="badge bg-info pull-right">5</b>                                                           
+                          <a href="{{ routeQuery('employees.index') }}" >
+
                             <i class="fa fa-angle-right"></i>
                             <span>Nhân viên</span>
                           </a>
                         </li>
-                        
                         <li>
-                          <a href="#table" >                            
+                          <a href="#table" >
                             <i class="fa fa-angle-down text"></i>
                             <i class="fa fa-angle-up text-active"></i>
                             <span>Thực đơn</span>
@@ -87,19 +72,20 @@
                           </ul>
                         </li>
                         <li >
-                          <a href="#" >                                                          
+                          <a href="#" >
                             <i class="fa fa-angle-right"></i>
                             <span>Quán</span>
                           </a>
                         </li>
                         <li >
-                          <a href="#" >                                                          
+                          <a href="#" >
                             <i class="fa fa-angle-right"></i>
                             <span>Hóa đơn</span>
                           </a>
                         </li>
                       </ul>
-                    </li>                   
+                    </li>
+
                     <li >
                       <a href="#"  >
                         <i class="fa fa-truck icon">
@@ -113,18 +99,18 @@
                       </a>
                       <ul class="nav lt">
                         <li >
-                          <a href="buttons.html" >   
-                            <b class="badge bg-info pull-right">5</b>                                                           
+                          <a href="buttons.html" >
+                            <b class="badge bg-info pull-right">5</b>
                             <i class="fa fa-angle-right"></i>
                             <span>Thực phẩm</span>
                           </a>
                         </li>
-                        
+
                         <li>
-                          <a href="#table" >                            
+                          <a href="#table" >
                             <i class="fa fa-angle-right"></i>
                             <span>Nước giải khát</span>
-                          </a>                       
+                          </a>
                         </li>
                       </ul>
                     </li>
@@ -133,7 +119,7 @@
                 <!-- / nav -->
               </div>
             </section>
-            
+
             <footer class="footer lt hidden-xs b-t b-dark">
               <div id="chat" class="dropup">
                 <section class="dropdown-menu on aside-md m-l-n">
@@ -146,7 +132,7 @@
                   </section>
                 </section>
               </div>
-              <div id="invite" class="dropup">                
+              <div id="invite" class="dropup">
                 <section class="dropdown-menu on aside-md m-l-n">
                   <section class="panel bg-white">
                     <header class="panel-heading b-b b-light">
@@ -171,3 +157,4 @@
           </section>
         </aside>
     <!-- /.aside -->
+@endif

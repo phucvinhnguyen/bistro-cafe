@@ -12,7 +12,7 @@
     <section class="panel panel-default">
       <header class="panel-heading">
         Danh sách nhân viên
-        <span class="label bg-success">{{count($emps)}}</span>
+        ({{count($emps)}})
       </header>
       <div class="row wrapper">
         <div class="col-sm-9 m-b-xs">
@@ -64,7 +64,7 @@
                 <td>{{ $emp->start_date }}</td>
                 <td>{{ $emp->phone }}</td>
                 <td>
-                  <a href="#" class="active" data-toggle="class"><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target=""><i class="fa fa-edit"></i></button>
                 </td>
               </tr>
               @endforeach

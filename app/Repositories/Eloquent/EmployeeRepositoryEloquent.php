@@ -48,4 +48,5 @@ class EmployeeRepositoryEloquent extends BaseRepository implements EmployeeRepos
     {
         return $this->model->destroy($ids);
     }
+
 }

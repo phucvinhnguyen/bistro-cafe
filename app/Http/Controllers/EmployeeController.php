@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\EmployeeRepository;
-use Carbon\Carbon;
-use Log;
-use Exception;
 
 class EmployeeController extends Controller
 {
@@ -26,11 +23,12 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $input = $request->only('name', 'phone', 'password', 'birthday', 'start_date', 'sex');
-        $input['role']  = 3;
+        $input['role']  = "3";
+        $input['password']  = bcrypt($input['password']);
+
         $this->empRepository->create($input);
 
         session()->flash('messsage', 'Successfully added new Employee.');
-
         return redirect()->route('employees.index');
     }
 

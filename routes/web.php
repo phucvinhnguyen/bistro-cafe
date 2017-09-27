@@ -13,20 +13,21 @@
 
 
 
-Route::group(['prefix' => 'bistrocp'], function () {
+
+
+
+
+
+Route::group(['prefix' => 'bistrocp', 'middleware' => 'auth'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('employees', 'EmployeeController@index')->name('employees.index');
-    Route::resource('employees', 'EmployeeController');
+    Route::post('employees', ['as' => 'employees.store', 'uses' => 'EmployeeController@store']);
 	Route::delete('employees', ['as' => 'employees.destroy', 'uses' => 'EmployeeController@destroy']);
-
-    Route::get('auth/login', 'EmployeeController@login');
-    Route::post('auth/login', 'EmployeeController@authenticate')->name('employees.auth');
-    Route::get('auth/logout', 'EmployeeController@logout')->name('employees.auth');
-
 });
 
 Auth::routes();
-
+Route::post('/login', 'Auth\LoginController@authenticate')->name('auth');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
