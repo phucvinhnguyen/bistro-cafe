@@ -35,6 +35,11 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
         return count($this->roles()->find($role)) > 0;
     }
 
+    public function isSuperAdmin()
+    {
+        return count($this->roles()->find($role)) > 0;
+    }
+
     public function hasAnyRole($roles)
     {
         if (count($roles) > 0)

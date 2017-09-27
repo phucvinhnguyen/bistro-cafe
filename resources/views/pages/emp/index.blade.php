@@ -9,6 +9,100 @@
       <li><a href="#">Quản lí</a></li>
       <li class="active">Nhân viên</li>
     </ul>
+
+  <div class="row">
+      <div class="col-sm-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">
+            <div class="row">
+              <div class="col-sm-10 m-b-xs">
+                 Phân quyền truy cập
+              </div>
+              <div class="col-sm-2 m-b-xs">
+                 <button class="btn btn-sm btn-primary" data-toggle="" data-target="">Thêm</button>
+              </div>
+            </div>
+
+          </header>
+          <div class="table-responsive">
+          <table class="table table-striped b-t b-light">
+            <thead>
+              <tr>
+                <th class="th-sortable" data-toggle="class">Phân quyền</th>
+                <th>Mô tả</th>
+                <th width="30"></th>
+              </tr>
+            </thead>
+            <tbody>
+              @if (isset($roles) && count($roles) > 0)
+                @foreach ($roles as $role)
+                <tr>
+                  <td>{{ $role->name }}</td>
+                  <td>{{ $role->description }} </td>
+                  <td>
+                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                  </td>
+                </tr>
+                @endforeach
+              @endif
+            </tbody>
+          </table>
+        </div>
+        </section>
+      </div>
+      <div class="col-sm-6">
+        <section class="panel panel-default">
+          <header class="panel-heading">Stats</header>
+          <table class="table table-striped m-b-none">
+            <thead>
+              <tr>
+                <th>Graph</th>
+                <th>Item</th>
+                <th width="70"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="sparkline" data-bar-color="#5cb85c" data-type="bar" data-height="19"><!--20,10,15,21,12,5,21,30,24,15,8,19--></div>
+                </td>
+                <td>App downloads</td>
+                <td class="text-success">
+                  <i class="fa fa-level-up"></i> 40%
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="sparkline" data-bar-color="#61a1e1" data-type="bar" data-height="19"><!--,5,21,30,24,15,8,19,20,10,15,21,12--></div>
+                </td>
+                <td>Social connection</td>
+                <td class="text-success">
+                  <i class="fa fa-level-up"></i> 20%
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="sparkline" data-bar-color="#999900" data-type="bar" data-height="19"><!--200,400,500,100,90,1200,1500,1000,800,500,80,50--></div>
+                </td>
+                <td>Revenue</td>
+                <td class="text-warning">
+                  <i class="fa fa-level-down"></i> 5%
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="sparkline" data-bar-color="#ff5f5f" data-type="bar" data-height="19"><!--15,21,30,24,15,8,19,20,10,15,21,12--></div>
+                </td>
+                <td>Customer increase</td>
+                <td class="text-danger">
+                  <i class="fa fa-level-down"></i> 20%
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
     <section class="panel panel-default">
       <header class="panel-heading">
         Danh sách nhân viên
@@ -64,7 +158,7 @@
                 <td>{{ $emp->start_date }}</td>
                 <td>{{ $emp->phone }}</td>
                 <td>
-                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target=""><i class="fa fa-edit"></i></button>
+                  <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                 </td>
               </tr>
               @endforeach

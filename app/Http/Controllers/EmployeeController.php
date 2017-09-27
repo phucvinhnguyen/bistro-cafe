@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\EmployeeRepository;
+use App\Repositories\Interfaces\RolesRepository;
 
 class EmployeeController extends Controller
 {
     private $empRepository;
+    private $empRoleRepository;
 
-    public function __construct(EmployeeRepository $emp)
+    public function __construct(EmployeeRepository $emp, RolesRepository $role)
     {
         $this->empRepository = $emp;
+        $this->empRoleRepository = $role;
     }
 
     public function index(Request $request)
     {
         $emps = $this->empRepository->all();
-    	return view('pages.emp.index', compact(['emps']));
+        $roles = $this->empRoleRepository->all();
+    	return view('pages.emp.index', compact(['emps', 'roles']));
     }
 
     public function store(Request $request)
