@@ -17,8 +17,8 @@
       <div class="row wrapper">
         <div class="col-sm-9 m-b-xs">
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addEmpModal">Thêm</button>
-          <button type="submit" form="deleteEmp" class="btn btn-sm btn-danger">Xóa (<span class="count-checked">0</span>)</button>
-          <button class="btn btn-sm btn-default">In Lương (<span class="count-checked">0</span>)</button>
+          <button type="submit" form="deleteEmp" id="btnDelete" class="btn btn-sm btn-danger">Xóa (<span class="count-checked">0</span>)</button>
+          <!-- <button class="btn btn-sm btn-default">In Lương (<span class="count-checked">0</span>)</button> -->
         </div>
         <div class="col-sm-3">
           <div class="input-group">

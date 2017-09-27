@@ -193,17 +193,19 @@
 	$(document).on('click', '.fontawesome-icon-list a', function(e){
 		e && e.preventDefault();
 	});
-
+    $('#btnDelete').prop('disabled', true);
 	// table select/deselect all
 	$(document).on('change', 'table thead [type="checkbox"]', function(e){
 		e && e.preventDefault();
 		var $table = $(e.target).closest('table'), $checked = $(e.target).is(':checked');
 		$('tbody [type="checkbox"]',$table).prop('checked', $checked);
         if ($checked) {
+            $('#btnDelete').prop('disabled', false);
             $('.count-checked').text($('tbody [type="checkbox"]',$table).length);
         }
         else
         {
+            $('#btnDelete').prop('disabled', true);
             $('.count-checked').text(0);
         }
 	});
@@ -247,9 +249,16 @@
     $('input[name="emps[]"]').on('change', function() {
         var currentChecked = $('.count-checked:first').text();
         if ($(this).prop("checked"))
+        {
+            $('#btnDelete').prop('disabled', false);
             currentChecked++;
+        }
         else
+        {
             currentChecked--;
+        }
+        if (currentChecked == 0)
+                $('#btnDelete').prop('disabled', true);
         $('.count-checked').text(currentChecked);
     });
 
