@@ -43,4 +43,9 @@ class EmployeeRepositoryEloquent extends BaseRepository implements EmployeeRepos
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function deleteMultiRecord(array $ids)
+    {
+        return $this->model->destroy($ids);
+    }
 }

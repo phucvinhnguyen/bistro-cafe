@@ -23,7 +23,15 @@
         </header>
         <div class="list-group list-group-alt animated fadeInRight">
         @if (Session::has('message'))
-          <script type="text/javascript"> addMsg({!! session('message') !!}) </script>
+            <a href="#" class="media list-group-item">
+              <span class="pull-left thumb-sm text-center">
+                <i class="fa fa-envelope-o fa-2x text-success"></i>
+              </span>
+              <span class="media-body block m-b-none">
+               {{ Session::get('message') }}
+                </br>
+              </span>
+            </a>
         @endif
         </div>
 <footer class="panel-footer text-sm">

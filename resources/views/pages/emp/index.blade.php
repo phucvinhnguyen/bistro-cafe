@@ -11,12 +11,13 @@
     </ul>
     <section class="panel panel-default">
       <header class="panel-heading">
-        Danh sách nhân viên ({{count($emps)}})
+        Danh sách nhân viên
+        <span class="label bg-success">{{count($emps)}}</span>
       </header>
       <div class="row wrapper">
         <div class="col-sm-9 m-b-xs">
           <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addEmpModal">Thêm</button>
-          <button class="btn btn-sm btn-danger">Xóa (<span class="count-checked">0</span>)</button>
+          <button type="submit" form="deleteEmp" class="btn btn-sm btn-danger">Xóa (<span class="count-checked">0</span>)</button>
           <button class="btn btn-sm btn-default">In Lương (<span class="count-checked">0</span>)</button>
         </div>
         <div class="col-sm-3">
@@ -30,7 +31,9 @@
       </div>
 
       <!-- Table emp -->
-      <form action=""></form>
+      <form action="{{ route('employees.destroy') }}" method="POST" id="deleteEmp">
+        {!! csrf_field() !!}
+        {!! method_field('DELETE') !!}
       <div class="table-responsive">
         <table class="table table-striped b-t b-light">
           <thead>
@@ -69,6 +72,7 @@
           </tbody>
         </table>
       </div>
+      </form>
       <!-- Table emp -->
 
       <div id="addEmpModal"  class="modal fade" tabindex="-1" role="dialog">

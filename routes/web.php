@@ -18,7 +18,8 @@ Route::group(['prefix' => 'bistrocp'], function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('employees', 'EmployeeController@index')->name('employees.index');
-	Route::resource('employees', 'EmployeeController');
+    Route::resource('employees', 'EmployeeController');
+	Route::delete('employees', ['as' => 'employees.destroy', 'uses' => 'EmployeeController@destroy']);
 
     Route::get('auth/login', 'EmployeeController@login');
     Route::post('auth/login', 'EmployeeController@authenticate')->name('employees.auth');

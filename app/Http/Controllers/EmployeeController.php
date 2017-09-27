@@ -29,14 +29,23 @@ class EmployeeController extends Controller
         $input['role']  = 3;
         $this->empRepository->create($input);
 
-        return redirect()->route('employees.index')->with('success');
+        session()->flash('messsage', 'Successfully added new Employee.');
+
+        return redirect()->route('employees.index');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $emps = $this->empRepository->delete($id);
-        Session::flash('messsage', 'Successfully deleted.');
-        return Redirect::to('employees.index');
+        try
+        {
+            $this->empRepository->deleteMultiRecord($request->emps);
+        }
+        catch (Exception $e)
+        {
+            dd($e);
+        }
+        session()->flash('messsage', 'Successfully deleted.');
+        return redirect()->route('employees.index');
     }
 
 }
