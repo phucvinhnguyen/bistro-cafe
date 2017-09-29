@@ -14,6 +14,6 @@ class Roles extends Model implements Transformable
     protected $table = 'roles';
 
     public function users() {
-        return $this->belongsToMany('App\Entities\Employee', 'role_employee', 'employee_id', 'roles_id');
+        return $this->hasMany('App\Entities\Employee', 'id');
     }
 }

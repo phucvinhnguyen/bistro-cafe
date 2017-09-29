@@ -15,12 +15,12 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
 {
     use TransformableTrait, Notifiable, Authenticatable, CanResetPassword;
 
-    protected $fillable = ['name', 'phone', 'password', 'birthday', 'role', 'sex', 'start_date', 'address'];
+    protected $fillable = ['name', 'phone', 'password', 'birthday', 'role', 'sex', 'start_date', 'address', 'salary'];
     protected $table = 'employees';
-    protected $hidden = ['remember_token', 'salary'];
+    protected $hidden = ['remember_token'];
 
     public function roles() {
-        return $this->belongsToMany('App\Entities\Roles', 'role_employee', 'employee_id', 'roles_id');
+        return $this->belongsTo('App\Entities\Roles', 'role');
     }
 
     public function hasAnyRole($roles)
