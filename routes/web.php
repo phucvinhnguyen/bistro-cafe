@@ -11,20 +11,20 @@
 |
 */
 
-
-
-
-
-
-
+define('SUPER_ADMIN', 'admin');
+define('CP_PERMISSION', 'admin,manager');
+define('EDIT_PROFILE', 'admin,manager,staff');
 
 Route::group(['prefix' => 'bistrocp', 'middleware' => 'auth'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
 
-    Route::get('employees', 'EmployeeController@index')->name('employees.index');
-    Route::post('employees', ['as' => 'employees.store', 'uses' => 'EmployeeController@store']);
-	Route::delete('employees', ['as' => 'employees.destroy', 'uses' => 'EmployeeController@destroy']);
+    Route::get('/employees',['as' => 'employees.index','uses' => 'EmployeeController@index', 'middleware' => 'role:'.CP_PERMISSION]);
+    Route::get('/employees/{id}/profile',['as' => 'employees.profile','uses' => 'EmployeeController@profile', 'middleware' => 'role:'.EDIT_PROFILE]);
+    Route::post('/employees', ['as' => 'employees.store', 'uses' => 'EmployeeController@store', 'middleware' => 'role:'.CP_PERMISSION]);
+    Route::post('/employees/{id}/profile', ['as' => 'employees.update', 'uses' => 'EmployeeController@update', 'middleware' => 'role:'.EDIT_PROFILE]);
+	Route::delete('/employees', ['as' => 'employees.destroy', 'uses' => 'EmployeeController@destroy', 'middleware' => 'role:'.SUPER_ADMIN]);
+
 });
 
 Auth::routes();
