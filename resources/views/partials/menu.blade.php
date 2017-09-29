@@ -1,4 +1,4 @@
-@if (Auth::check() && Auth::user()->hasRole(1))
+@if (Auth::check())
 <aside class="bg-light lter aside-md hidden-print" id="nav">
           <section class="vbox">
             <section class="w-f scrollable">
@@ -7,7 +7,7 @@
                 <!-- nav -->
                 <nav class="nav-primary hidden-xs">
                   <ul class="nav">
-                    <li  class="active">
+                    <li class="{{ isActiveRoute('employees') }}">
                       <a href="index.html" class="active">
                         <i class="fa fa-dashboard icon">
                           <b class="bg-danger"></b>
@@ -15,7 +15,7 @@
                         <span>Thống kê</span>
                       </a>
                     </li>
-                    <li >
+                    <li class="{{ isActiveRoute('employees') }}">
                       <a href="#layout">
                         <i class="fa fa-columns icon">
                           <b class="bg-warning"></b>
@@ -25,8 +25,8 @@
                       </a>
                     </li>
 
-                    <li>
-                      <a href="#uikit"  >
+                    <li class="{{ canActiveRoute('employees') }}">
+                      <a href="#"  >
                         <i class="fa fa-flask icon">
                           <b class="bg-success"></b>
                         </i>
