@@ -24,17 +24,7 @@
             <strong>Bạn có <span class="count"></span> thông báo.</strong>
         </header>
         <div class="list-group list-group-alt animated fadeInRight">
-        @if (Session::has('message'))
-            <a href="#" class="media list-group-item">
-              <span class="pull-left thumb-sm text-center">
-                <i class="fa fa-envelope-o fa-2x text-success"></i>
-              </span>
-              <span class="media-body block m-b-none">
-               {{ Session::get('message') }}
-                </br>
-              </span>
-            </a>
-        @endif
+
         </div>
 <footer class="panel-footer text-sm">
     <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
