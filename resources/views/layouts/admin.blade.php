@@ -54,5 +54,28 @@
 @yield('scripts')
 
 @yield('embed-scripts')
+<script type="text/javascript">
+  // add notes
+  function addMsg($content) {
+        var $msg = `<a href="#" class="media list-group-item">
+                  <span class="pull-left thumb-sm text-center">
+                    <i class="fa fa-envelope-o fa-2x text-success"></i>
+                  </span>
+                  <span class="media-body block m-b-none">` +
+                    $content +
+                  `</span>
+                </a>`;
+    var $el = $('.nav-user'), $n = $('.count:first', $el), $v = parseInt($n.text());
+    $('.count', $el).fadeOut().fadeIn().text($v+1);
+    $($msg).hide().prependTo($el.find('.list-group')).slideDown().css('display','block');
+  }
+
+   $(document).ready(function () {
+      @if (session()->has('message'))
+        addMsg('{!!session()->get("message")!!}')
+      @endif
+   });
+</script>
+
 </body>
 </html>
