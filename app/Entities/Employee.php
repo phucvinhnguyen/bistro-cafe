@@ -15,7 +15,7 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
 {
     use TransformableTrait, Notifiable, Authenticatable, CanResetPassword;
 
-    protected $fillable = ['name', 'phone', 'password', 'birthday', 'role', 'sex', 'start_date'];
+    protected $fillable = ['name', 'phone', 'password', 'birthday', 'role', 'sex', 'start_date', 'address'];
     protected $table = 'employees';
     protected $hidden = ['remember_token', 'salary'];
 
@@ -23,32 +23,17 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
         return $this->belongsToMany('App\Entities\Roles', 'role_employee', 'employee_id', 'roles_id');
     }
 
-    public function authorizeRoles($roles)
-    {
-        if ($this->hasAnyRole($role))
-            return true;
-        abort(401, 'Unauthorized.');
-    }
-
-    public function hasRole($role)
-    {
-        return count($this->roles()->find($role)) > 0;
-    }
-
-    public function isSuperAdmin()
-    {
-        return count($this->roles()->find($role)) > 0;
-    }
-
     public function hasAnyRole($roles)
     {
-        if (count($roles) > 0)
+        if (is_array($roles))
         {
-            $authRole = $this->roles()->whereIn('id', $roles)->get();
-            if (count($authRole) > 0)
-                return true;
+            return count($this->roles()->whereIn('name', $roles)->get()) > 0;
         }
-        return false;
+        else
+        {
+            $perms = explode(',', $roles);
+            return count($this->roles()->whereIn('name', $perms)->get()) > 0;
+        }
     }
 
 }
