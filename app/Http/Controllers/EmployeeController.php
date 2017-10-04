@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\EmployeeRepository;
 use App\Repositories\Interfaces\RolesRepository;
 use Gate;
+use Toastr;
 
 class EmployeeController extends Controller
 {
@@ -38,8 +39,8 @@ class EmployeeController extends Controller
         $input['role']  = "3";
         $input['password']  = bcrypt($input['password']);
         $this->empRepo->create($input);
-
-        return redirect()->route('employees.index')->with('message', 'Thêm thành công.');
+        Toastr::success('Thêm thành công.');
+        return redirect()->route('employees.index');
     }
 
     public function update(Request $request, $id)
@@ -58,23 +59,32 @@ class EmployeeController extends Controller
             $input['password'] = bcrypt($input['password']);
             if (Hash::check($input['old_pwd'], $this->empRepo->find($id)->password)){
                 $this->empRepo->update($input, $id);
-                return redirect()->route('employees.index')->with('message', 'Cập nhật thành công');
+                Toastr::success('Cập nhật thành công');
+                return redirect()->route('employees.index');
             }
-            return redirect()->route('employees.profile', $id)->with('message', 'Mật khẩu cũ không đúng');
+            Toastr::error('Mật khẩu cũ không đúng');
+            return redirect()->route('employees.profile', $id);
         }
 
         $input = array_filter($input, function($var){return !is_null($var);});
         if ($this->empRepo->update($input, $id))
         {
-            return redirect()->route('employees.index')->with('message', 'Cập nhật thành công');
+            Toastr::success('Cập nhật thành công');
+            return redirect()->route('employees.index');
         }
         unset($input);
-        return redirect()->route('employees.profile', $id)->with('message', 'Không sửa được thông tin.');
+        Toastr::error('Không sửa được thông tin.');
+        return redirect()->route('employees.profile', $id);
 
     }
 
     public function destroy(Request $request)
     {
+        if (Gate::denies('delete', auth()->user())) {
+            Toastr::error('Bạn không được quyền xóa.');
+            return redirect()->route('employees.index');
+        }
+
         try
         {
             $this->empRepo->deleteMultiRecord($request->emps);
@@ -83,6 +93,7 @@ class EmployeeController extends Controller
         {
             dd($e);
         }
-        return redirect()->route('employees.index')->with('message', 'Successfully deleted.');
+        Toastr::success('Xóa thành công ['. count($request->emps) .'] nhân viên');
+        return redirect()->route('employees.index');
     }
 }
