@@ -12,11 +12,11 @@ class EmpTableSeeder extends Seeder
     public function run()
     {
         DB::table('employees')->insert([
-            'name' => str_random(10),
-            'phone' => rand(1000, 10000),
-            'password' => bcrypt('secret'),
-            'role' => 3,
-            'sex' => rand(1,2)
+            'name' => 'Admin',
+            'phone' => '0888837046',
+            'password' => bcrypt('123456'),
+            'role' => 1,
+            'sex' => 1
         ]);
     }
 }
