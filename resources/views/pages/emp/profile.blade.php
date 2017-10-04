@@ -112,16 +112,14 @@
                                   <input type="text" class="form-control input-s" disabled="">
                                   <label for="filestyle-0" class="btn btn-default"><span>Chọn</span></label>
                                 </div>
-
-
                                 <div class="col-sm-6">
                                     <label>Giới tính</label>
                                     <select name="sex" class="form-control m-b">
+                                        <option value="{{$emp->sex}}">Chọn</option>
                                         <option value="1">Nam</option>
                                         <option value="2">Nữ</option>
                                     </select>
                                   </div>
-
                               </div>
                             </li>
 
