@@ -13,26 +13,6 @@
   </div>
 
 <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
-    <li class="hidden-xs">
-      <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
-        <i class="fa fa-bell"></i>
-        <span class="badge badge-sm up bg-danger m-l-n-sm count">0</span>
-    </a>
-    <section class="dropdown-menu aside-xl">
-        <section class="panel bg-white">
-          <header class="panel-heading b-light bg-light">
-            <strong>Bạn có <span class="count"></span> thông báo.</strong>
-        </header>
-        <div class="list-group list-group-alt animated fadeInRight">
-
-        </div>
-<footer class="panel-footer text-sm">
-    <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-    <a href="#notes" data-toggle="class:show animated fadeInRight">Xem tất cả</a>
-</footer>
-</section>
-</section>
-</li>
 <li class="dropdown hidden-xs">
   <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"><i class="fa fa-fw fa-search"></i></a>
   <section class="dropdown-menu aside-xl animated fadeInUp">
