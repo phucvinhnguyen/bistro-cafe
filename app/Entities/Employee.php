@@ -23,17 +23,10 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
         return $this->belongsTo('App\Entities\Roles', 'role');
     }
 
-    public function hasAnyRole($roles)
+    public function hasRole($role)
     {
-        if (is_array($roles))
-        {
-            return count($this->roles()->whereIn('name', $roles)->get()) > 0;
-        }
-        else
-        {
-            $perms = explode(',', $roles);
-            return count($this->roles()->whereIn('name', $perms)->get()) > 0;
-        }
+        if($this->roles->hasRole($role))
+            return true;
+        return false;
     }
-
 }

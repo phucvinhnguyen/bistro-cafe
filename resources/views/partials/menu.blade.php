@@ -24,7 +24,7 @@
                         <span>Bán hàng</span>
                       </a>
                     </li>
-
+                    @can('access', App\Entities\Employee::class)
                     <li class="{{ canActiveRoute('employees') }}">
                       <a href="#"  >
                         <i class="fa fa-flask icon">
@@ -85,6 +85,7 @@
                         </li>
                       </ul>
                     </li>
+                    @endcan
 
                     <li >
                       <a href="#"  >

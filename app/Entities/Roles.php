@@ -16,4 +16,9 @@ class Roles extends Model implements Transformable
     public function users() {
         return $this->hasMany('App\Entities\Employee', 'id');
     }
+
+    public function hasRole(string $role)
+    {
+        return $this->name === $role ?? false;
+    }
 }

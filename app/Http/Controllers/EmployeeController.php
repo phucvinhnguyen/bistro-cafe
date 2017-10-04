@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\EmployeeRepository;
 use App\Repositories\Interfaces\RolesRepository;
+use Gate;
 
 class EmployeeController extends Controller
 {
@@ -43,7 +44,14 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $input = $request->only('name', 'phone', 'old_pwd', 'password', 'birthday', 'start_date', 'address', 'salary', 'fileID');
+        // Check deny update user
+        if (Gate::denies('update',  [auth()->user(), $id]))
+            return redirect()->route('employees.index');
+
+        if (!auth()->user()->hasRole('admin'))
+            $input = $request->only('name', 'sex', 'old_pwd', 'password', 'birthday', 'start_date', 'address');
+        else
+            $input = $request->only('name', 'phone', 'sex', 'old_pwd', 'password', 'birthday', 'start_date', 'address', 'salary', 'fileID');
 
         if (isset($input['old_pwd']) && isset($input['password']))
         {
@@ -60,7 +68,7 @@ class EmployeeController extends Controller
         {
             return redirect()->route('employees.index')->with('message', 'Cập nhật thành công');
         }
-
+        unset($input);
         return redirect()->route('employees.profile', $id)->with('message', 'Không sửa được thông tin.');
 
     }

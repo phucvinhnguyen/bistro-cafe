@@ -34,10 +34,10 @@
                   <section class="vbox">
                     <header class="header bg-light bg-gradient">
                       <ul class="nav nav-tabs nav-white">
-                        @if (Auth::user()->hasAnyRole(CP_PERMISSION))
+
                           <li class="active"><a href="#activity" data-toggle="tab">Chỉnh sửa</a></li>
                           <li class=""><a href="#events" data-toggle="tab">Hoạt động</a></li>
-                        @endif
+
                       </ul>
                     </header>
                     <section class="scrollable">
@@ -46,16 +46,14 @@
                           <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
                             <form action="{{route('employees.update', $emp->id)}}" method="POST" id="updateEmp">
                             {!! csrf_field() !!}
+
                             <li class="list-group-item">
                               <div class="form-group">
                                   <label>Họ và Tên</label>
-                                  @if (Auth::user()->hasAnyRole(SUPER_ADMIN))
                                     <input type="text" class="form-control" name="name" value="{{$emp->name}}" data-required="true">
-                                  @else
-                                    <input type="text" class="form-control" name="name" value="{{$emp->name}}" data-required="true" disabled="disabled">
-                                  @endif
                               </div>
                             </li>
+
                             <li class="list-group-item">
                               <div class="form-group pull-in clearfix">
                                 <div class="col-sm-6">
@@ -86,23 +84,22 @@
                             </li>
                             <li class="list-group-item">
                               <div class="form-group pull-in clearfix">
+
                                 <div class="col-sm-6">
                                   <label>Số điện thoại</label>
-                                  @if (Auth::user()->hasAnyRole(SUPER_ADMIN))
                                     <input type="text" class="form-control" name="phone" value="{{ $emp->phone }}" data-required="true">
-                                  @else
-                                    <input type="text" class="form-control" name="phone" value="{{ $emp->phone }}" data-required="true" disabled="disabled">
-                                  @endif
                                 </div>
+
                                 <div class="col-sm-6">
                                 <label>Địa chỉ</label>
                                   <input type="text" class="form-control" name="address" value="{{ $emp->address }}" data-required="true">
                                 </div>
                               </div>
                             </li>
-                            @if (Auth::user()->hasAnyRole(SUPER_ADMIN))
+
                             <li class="list-group-item">
                               <div class="form-group pull-in clearfix">
+
                                 <div class="col-sm-6">
                                     <label>Lương</label>
                                     <input type="text" class="form-control" name="salary" value="{{$emp->salary}}" data-required="true">
@@ -116,9 +113,18 @@
                                   <label for="filestyle-0" class="btn btn-default"><span>Chọn</span></label>
                                 </div>
 
-                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Giới tính</label>
+                                    <select name="sex" class="form-control m-b">
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nữ</option>
+                                    </select>
+                                  </div>
+
+                              </div>
                             </li>
-                            @endif
+
                           </ul>
                           <div class="row wrapper">
                             <div class="col-sm-5"><button class="btn btn-primary" type="submit">Lưu</button></div>
