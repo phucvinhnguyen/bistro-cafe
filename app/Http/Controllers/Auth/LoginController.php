@@ -44,7 +44,7 @@ class LoginController extends Controller
         $input = $request->only('phone', 'password');
 
         if (Auth::attempt(['phone' => $input['phone'], 'password' => $input['password']])) {
-            return redirect()->route('employees.index');
+            return redirect()->route('home');
         }
         else
         {
