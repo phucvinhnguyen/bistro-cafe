@@ -25,7 +25,7 @@
                       </a>
                     </li>
                     @can('access', App\Entities\Employee::class)
-                    <li class="{{ canActiveRoute('employees') }}">
+                    <li class="{{ canActiveRoute('management')}}">
                       <a href="#"  >
                         <i class="fa fa-flask icon">
                           <b class="bg-success"></b>
@@ -37,39 +37,18 @@
                         <span>Quản lí</span>
                       </a>
                       <ul class="nav lt">
-                        <li >
+                        <li class="{{ canActiveRoute('employees')}}">
                           <a href="{{ routeQuery('employees.index') }}" >
 
                             <i class="fa fa-angle-right"></i>
                             <span>Nhân viên</span>
                           </a>
                         </li>
-                        <li>
-                          <a href="#table" >
-                            <i class="fa fa-angle-down text"></i>
-                            <i class="fa fa-angle-up text-active"></i>
+                        <li class="{{ canActiveRoute('foods')}}">
+                          <a href="{{ routeQuery('food.index') }}" >
+                            <i class="fa fa-angle-right"></i>
                             <span>Thực đơn</span>
                           </a>
-                          <ul class="nav bg">
-                            <li >
-                              <a href="table-static.html" >
-                                <i class="fa fa-angle-right"></i>
-                                <span>Thức uống</span>
-                              </a>
-                            </li>
-                            <li >
-                              <a href="table-datatable.html" >
-                                <i class="fa fa-angle-right"></i>
-                                <span>Thức ăn</span>
-                              </a>
-                            </li>
-                            <li >
-                              <a href="table-datagrid.html" >
-                                <i class="fa fa-angle-right"></i>
-                                <span>Dịch vụ</span>
-                              </a>
-                            </li>
-                          </ul>
                         </li>
                         <li >
                           <a href="#" >
