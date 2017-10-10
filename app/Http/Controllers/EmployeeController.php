@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\EmployeeRepository;
 use App\Repositories\Interfaces\RolesRepository;
 use Gate;
@@ -75,7 +75,6 @@ class EmployeeController extends Controller
         unset($input);
         Toastr::error('Không sửa được thông tin.');
         return redirect()->route('employees.profile', $id);
-
     }
 
     public function destroy(Request $request)

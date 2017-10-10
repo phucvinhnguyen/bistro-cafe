@@ -24,6 +24,11 @@ class EmployeePolicy
         return $user->hasRole('admin') || $user->hasRole('manager');
     }
 
+    public function delete(Employee $user)
+    {
+        return $user->hasRole('admin');
+    }
+
     public function update(Employee $user, $auth, $id)
     {
         return $auth->hasRole('admin') || $auth->id === intval($id);

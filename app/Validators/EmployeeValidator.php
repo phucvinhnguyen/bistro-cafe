@@ -10,6 +10,12 @@ class EmployeeValidator extends LaravelValidator
 
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_UPDATE => [
+            'name' => 'required|min:3',
+            'password' => 'sometimes|min:6',
+            'phone' => 'required|numeric|unique:employees',
+            'sex' => 'numeric',
+            'salary' => 'numeric'
+        ],
    ];
 }

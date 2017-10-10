@@ -25,8 +25,11 @@ class Employee extends Model implements Transformable, AuthenticatableContract, 
 
     public function hasRole($role)
     {
-        if($this->roles->hasRole($role))
-            return true;
-        return false;
+        return $this->roles->hasRole($role);
+    }
+
+    public function hasAnyRole(...$roles)
+    {
+        return $this->roles()->whereIn('name', $roles)->count() > 0;
     }
 }
